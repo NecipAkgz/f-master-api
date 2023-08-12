@@ -1,9 +1,9 @@
 import cors from 'cors'
 import express from 'express'
 import morgan from 'morgan'
-import { createNewUser, signin } from './handlers/user'
-import { protect } from './modules/auth'
+import { createNewUser, signin } from './controls/user'
 import router from './router'
+import { protect } from './utils/auth'
 
 const app = express()
 

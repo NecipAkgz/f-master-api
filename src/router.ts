@@ -1,14 +1,13 @@
 import { Router } from 'express'
-import { body, oneOf } from 'express-validator'
-import { handleInputErrors } from './modules/middleware'
+import { body } from 'express-validator'
+import { getProducts } from './controls/product'
+import { handleInputErrors } from './utils/middleware'
 
 const router: Router = Router()
 
 /* Product */
 
-router.get('/product', (req, res) => {
-  res.json({ message: 'product' })
-})
+router.get('/product', getProducts)
 
 router.get('/product/:id', (req, res) => {})
 

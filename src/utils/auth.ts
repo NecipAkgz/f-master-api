@@ -21,6 +21,7 @@ export const hashPassword = (password) => {
 }
 
 export const protect = (req, res, next) => {
+  // Extract the authorization header from the request
   const bearer = req.headers.authorization
 
   if (!bearer) {
@@ -30,6 +31,7 @@ export const protect = (req, res, next) => {
   }
 
   const [, token] = bearer.split(' ')
+
   if (!token) {
     res.status(401)
     res.send('Not authorized')
@@ -37,7 +39,9 @@ export const protect = (req, res, next) => {
   }
 
   try {
+    // Verify the token using the JWT_SECRET from environment variables
     const payload = jwt.verify(token, process.env.JWT_SECRET)
+    // Assign the payload to the req.user property for future use
     req.user = payload
     console.log(payload)
     next()

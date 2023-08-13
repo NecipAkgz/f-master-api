@@ -88,4 +88,9 @@ router.put(
 
 router.delete('/updatepoint/:id', (req, res) => {})
 
+router.use((err, reg, res, next) => {
+  console.log(err)
+  res.json({ message: 'router error' })
+})
+
 export default router

@@ -1,7 +1,7 @@
 import cors from 'cors'
 import express from 'express'
 import morgan from 'morgan'
-import { createNewUser, signin } from './controls/user'
+import { createNewUser, signin } from './controllers/user'
 import router from './router'
 import { protect } from './utils/auth'
 

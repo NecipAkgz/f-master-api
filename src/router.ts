@@ -6,14 +6,14 @@ import {
   getOneProduct,
   getProducts,
   updateProduct,
-} from './controls/product'
+} from './controllers/product'
 import {
   createUpdate,
   deleteUpdate,
   getOneUpdate,
   getUpdates,
   updateUpdate,
-} from './controls/updates'
+} from './controllers/updates'
 import { handleInputErrors } from './utils/middleware'
 
 const router: Router = Router()

@@ -26,7 +26,8 @@
   },
   "scripts": {
     "start": "npx nodemon ./src/server.ts",
-    "dev": "npx nodemon src/index.ts"
+    "dev": "npx nodemon src/index.ts",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",

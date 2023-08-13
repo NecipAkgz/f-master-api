@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   res.status(200)
-  res.json({ message: 'Hello' })
+  res.json({ message: 'hello' })
   console.log('Main Page')
 })
 

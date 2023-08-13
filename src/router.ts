@@ -7,11 +7,18 @@ import {
   getProducts,
   updateProduct,
 } from './controls/product'
+import {
+  createUpdate,
+  deleteUpdate,
+  getOneUpdate,
+  getUpdates,
+  updateUpdate,
+} from './controls/updates'
 import { handleInputErrors } from './utils/middleware'
 
 const router: Router = Router()
 
-/* Product */
+/* -------------------------------- /Product -------------------------------- */
 
 router.get('/product', getProducts)
 
@@ -33,17 +40,18 @@ router.put(
 
 router.delete('/product/:id', deleteProduct)
 
-/* Update*/
+/* --------------------------------- Update --------------------------------- */
 
-router.get('/update', (req, res) => {})
+router.get('/update', getUpdates)
 
-router.get('/update/:id', (req, res) => {})
+router.get('/update/:id', getOneUpdate)
 
 router.post(
   '/update',
   body('title').exists().isString(),
   body('body').exists().isString(),
-  (req, res) => {}
+  body('productId').exists().isString(),
+  createUpdate
 )
 
 router.put(
@@ -52,12 +60,12 @@ router.put(
   body('body').optional(),
   body('status').isIn(['IN_PROGRESS', 'SHIPPED', 'DEPRECATED']),
   body('version').optional(),
-  (req, res) => {}
+  updateUpdate
 )
 
-router.delete('/update/:id', (req, res) => {})
+router.delete('/update/:id', deleteUpdate)
 
-/* UpdatePoint */
+/* ------------------------------- UpdatePoint ------------------------------ */
 
 router.get('/updatepoint', (req, res) => {})
 
